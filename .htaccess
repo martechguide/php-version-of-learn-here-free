@@ -1,0 +1,11 @@
+RewriteEngine On
+DirectoryIndex index.php
+
+# Handle missing files
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+# Enable error reporting for development
+php_flag display_errors on
+php_value error_reporting E_ALL
